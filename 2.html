@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            h1{
+                margin-left: 33%;
+            }
+
+            #diziInput{
+                border: 5px solid;
+                border-left-color: firebrick;
+                border-right-color: firebrick;
+                border-radius: 5px;
+                padding-left: 2%;
+                height: 3em;
+                font-size: 3em;
+            }
+        
+        </style>
+
+        <script>
+            var dizi = [];
+            var elemanSayısı = 0;
+            function elemanEkle () {
+                var kontrol = false;
+                var diziBoyutu = dizi.length;
+                var eklenenEleman = document.getElementById('diziInput').value;
+                var newElement = {
+                    name: eklenenEleman,
+                    adet:1
+                };
+
+                if(elemanSayısı < 10) {
+                    dizi.forEach(element => {
+                        if(element.name === eklenenEleman) {
+                            element.adet += 1;
+                            kontrol = true;
+                            elemanSayısı += 1;
+                        }
+                    });
+
+                    if(!kontrol){
+                        dizi.push(newElement);
+                        elemanSayısı += 1;
+                    }
+                                    
+                    console.log('ELEMAN SAYISI : ', elemanSayısı)
+                    console.log('DİZİ : ', dizi)
+                } else {
+                    alert('ELEMAN SAYISI SINIRLIDIR');
+                }  
+
+                dizi.forEach(element => {
+                    document.getElementById('dizi').innerHTML = element.name;
+                    document.getElementById('diziBoyutu').innerHTML = element.adet + ' ';      
+                });
+
+                document.getElementById('toplam').innerHTML = elemanSayısı;
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <h1>2- DİZİ KONTROL</h1>
+        <hr>
+
+        <div>
+            <b><p>LÜTFEN DİZİ ELEMANLARINI GİRİN :</p></b>
+            <input type="text" id="diziInput">
+            <button onclick="elemanEkle()">EKLE</button>
+        </div>
+
+        <div>
+            <h3>DİZİDEKİ ELEMAN SAYISI :</h3>
+            <p id="toplam"></p>
+            <hr>
+            <p id="dizi"></p>
+            <p id="diziBoyutu"></p>
+        </div>
+
+    </body>
+</html>

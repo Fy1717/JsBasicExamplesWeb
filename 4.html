@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            h1{
+                margin-left: 33%;
+            }
+
+            #input{
+                border: 5px solid;
+                border-left-color: firebrick;
+                border-right-color: firebrick;
+                border-radius: 5px;
+                padding-left: 2%;
+                height: 3em;
+                font-size: 3em;
+            }
+        
+        </style>
+
+        <script>
+            function Cevir() {
+                var birlerYazı = '';
+                var onlarYazı = '';
+                var yuzlerYazı = '';
+
+                var sayı = document.getElementById('input').value;
+                var basamak = sayı.split('');
+                
+                if(parseInt(sayı) > 999) {
+                    alert('SAYI UZUNLUĞU  3 BASAMAK OLMALI')
+                } else {
+                    var birler = basamak.slice(-1)[0];
+                    var onlar = basamak.slice(-2)[0];
+                    var yuzler = basamak.slice(-3)[0];
+
+                    if(birler === "1") {
+                        birlerYazı = 'bir';
+                    } else if(birler === "2") {
+                        birlerYazı = 'iki';
+                    }else if(birler === "3") {
+                        birlerYazı = 'üç';
+                    } else if(birler === "4") {
+                        birlerYazı = 'dört';
+                    } else if(birler === "5") {
+                        birlerYazı = 'beş';
+                    } else if(birler === "6") {
+                        birlerYazı = 'altı';
+                    } else if(birler === "7") {
+                        birlerYazı = 'yedi';
+                    } else if(birler === "8") {
+                        birlerYazı = 'sekiz';
+                    } else if(birler === "9") {
+                        birlerYazı = 'dokuz';
+                    } else {
+                        birlerYazı = '';
+                    }
+                    
+                    if(onlar === "1") {
+                        onlarYazı = 'on';
+                    } else if(onlar === "2") {
+                        onlarYazı = 'yirmi';
+                    } else if(onlar === "3") {
+                        onlarYazı = 'otuz';
+                    } else if(onlar === "4") {
+                        onlarYazı = 'kırk';
+                    } else if(onlar === "5") {
+                        onlarYazı = 'elli';
+                    } else if(onlar === "6") {
+                        onlarYazı = 'altmış';
+                    } else if(onlar === "7") {
+                        onlarYazı = 'yetmiş';
+                    } else if(onlar === "8") {
+                        onlarYazı = 'seksen';
+                    } else if(onlar === "9") {
+                        onlarYazı = 'doksan';
+                    } else {
+                        onlarYazı = '';
+                    }
+                    
+                    if(yuzler === "1") {
+                        yuzlerYazı = 'yüz';
+                    } else if(yuzler === "2") {
+                        yuzlerYazı = 'iki yüz';
+                    } else if(yuzler === "3") {
+                        yuzlerYazı = 'üç yüz';
+                    } else if(yuzler === "4") {
+                        yuzlerYazı = 'dört yüz';
+                    } else if(yuzler === "5") {
+                        yuzlerYazı = 'beş yüz';
+                    } else if(yuzler === "6") {
+                        yuzlerYazı = 'altı yüz';
+                    } else if(yuzler === "7") {
+                        yuzlerYazı = 'yedi yüz';
+                    } else if(yuzler === "8") {
+                        yuzlerYazı = 'sekiz yüz';
+                    } else if(yuzler === "9") {
+                        yuzlerYazı = 'dokuz yüz';
+                    } else {
+                        '';
+                    }
+
+                    console.log(yuzlerYazı);
+                    console.log(onlarYazı);
+                    console.log(birlerYazı);
+
+                }
+
+                document.getElementById('sayıYazıİle').innerHTML = yuzlerYazı + ' ' + onlarYazı + ' ' + birlerYazı;
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <h1>4- SAYI ÇEVİRİ</h1>
+        <hr>
+
+        <div>
+            <b><p>SAYIYI GİRİN :</p></b>
+            <input type="number" id="input">
+            <button onclick="Cevir()">ÇEVİR</button>
+        </div>
+
+        <div>
+            <p id="sayıYazıİle"></p>
+        </div>
+
+    </body>
+</html>

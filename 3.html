@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            h1{
+                margin-left: 33%;
+            }
+
+            #input{
+                border: 5px solid;
+                border-left-color: firebrick;
+                border-right-color: firebrick;
+                border-radius: 5px;
+                padding-left: 2%;
+                height: 3em;
+                font-size: 3em;
+            }
+        
+        </style>
+
+        <script>
+            function bolumKontrol(bolumAdi) {
+                var sesliler = ['a','e','ı','i','o','u','ü','ö'];
+                var bolumToList = bolumAdi.replace(' ', '').split('');
+                var sesliSayisi = 0;
+                var sessizSayisi = 0;
+
+                for(var harfIndex = 0; harfIndex < bolumToList.length; harfIndex++) {
+                    for(var sesliIndex = 0; sesliIndex < sesliler.length; sesliIndex++) {
+                        if(bolumToList[harfIndex] === sesliler[sesliIndex]) {
+                            sesliSayisi += 1;
+                        } 
+                    }
+                }
+
+                if(sesliSayisi > (bolumToList.length - sesliSayisi)) {
+                    document.getElementById('sessiz').innerHTML = sesliSayisi - bolumToList.length;
+                } else {
+                    document.getElementById('sessiz').innerHTML = bolumToList.length - sesliSayisi;
+                }
+
+                document.getElementById('sesli').innerHTML = sesliSayisi;
+            }
+       
+            function Kontrol() {
+                var bolum = document.getElementById('input').value;
+                
+                bolum = bolum.toLowerCase();
+
+                bolumKontrol(bolum);
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <h1>4- BÖLÜM HARF KONTROL</h1>
+        <hr>
+
+        <div>
+            <b><p>LÜTFEN BÖLÜMÜNÜZÜ GİRİN :</p></b>
+            <input type="text" id="input">
+            <button onclick="Kontrol()">KONTROL ET</button>
+        </div>
+
+        <div>
+            <hr>
+            <b><p>SESLİ HARF SAYISI :</p></b>
+            <p id="sesli"></p>
+            <b><p>SESSİZ HARF SAYISI :</p></b>
+            <p id="sessiz"></p>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            h1{
+                margin-left: 23%;
+            }
+
+            #isimInput1{
+                border: 5px solid;
+                border-left-color: firebrick;
+                border-right-color: firebrick;
+                border-radius: 5px;
+                padding-left: 2%;
+                height: 3em;
+                font-size: 3em;
+            }
+
+            #renkSelect{
+                width: 12%;
+                padding: 10px;
+                border: 2px solid;
+                border-radius: 2px;
+            }
+        
+        </style>
+
+        <script>
+            function renkSec () {
+                var secilenRenk = document.getElementById('renkSelect').value;
+                var isim = document.getElementById('isimInput1');
+
+                if(secilenRenk === 'siyah'){
+                    secilenRenk = 'black';
+                } else if(secilenRenk === 'kırmızı'){
+                    secilenRenk = 'red';
+                } else if(secilenRenk === 'mavi'){
+                    secilenRenk = 'blue';
+                } else if(secilenRenk === 'sarı'){
+                    secilenRenk = 'yellow';
+                } else if(secilenRenk === 'beyaz'){
+                    secilenRenk = 'white';
+                } else if(secilenRenk === 'yesil'){
+                    secilenRenk = 'green';
+                } else if(secilenRenk === 'turuncu'){
+                    secilenRenk = 'orange';
+                } else {
+                    secilenRenk = 'black';
+                }
+
+                isim.style.color = secilenRenk;
+                console.log(secilenRenk);
+            }
+            
+        </script>
+    </head>
+
+    <body>
+        <h1>1- İSMİNİZİ İSTEDİĞİNİZ RENKTE GİRİN</h1>
+        <hr>
+
+        <div id="isimRenk1">
+            <b><p>LÜTFEN INPUT ALANINA İSMİNİZİ GİRİNİZ :</p></b>
+            <input type="text" id="isimInput1">
+
+            <select id="renkSelect" onchange="renkSec()">
+                <option value="siyah">SİYAH</option>
+                <option value="beyaz">BEYAZ</option>
+                <option value="mavi">MAVİ</option>
+                <option value="kırmızı">KIRMIZI</option>
+                <option value="sarı">SARI</option>
+                <option value="turuncu">TURUNCU</option>
+                <option value="yesil">YEŞİL</option>
+            </select>
+        </div>
+    </body>
+</html>
